@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "./header";
 import { command } from "@/lib/utils";
 
-const Output = ({ output, history }) => {
+const Output = ({ output, history, doneLoading }) => {
   const [displayedLines, setDisplayedLines] = useState([]);
 
   useEffect(() => {
@@ -31,6 +31,8 @@ const Output = ({ output, history }) => {
 
     if (displayedLines.some((line) => line.text !== line.fullText)) {
       interval = setInterval(updateLines, 0.1);
+    } else if (displayedLines.some((line) => line.text === line.fullText)) {
+      doneLoading();
     }
 
     return () => clearInterval(interval);
@@ -70,6 +72,7 @@ const CommandPrompt = () => {
   const [cmd, setCmd] = useState("");
   const [outputs, setOutputs] = useState([]);
   const [history, setHistory] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setCmd(event.target.value);
@@ -107,17 +110,23 @@ const CommandPrompt = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
+    if (loading) return;
+
     if (cmd === "") {
       return;
     } else if (cmd === "clear" || cmd === "cls") {
       handleClear();
-      return;
+      return setLoading(false);
     } else if (cmd === "exit") {
       window.close();
+      return setLoading(false);
     } else if (cmd === "theme") {
       handleThemeChange();
+      return setLoading(false);
     } else if (cmd === "contact") {
       handleContact();
+      return setLoading(false);
     } else {
       const output = command(cmd);
       setOutputs((prevOutputs) => [...prevOutputs, output]);
@@ -136,7 +145,12 @@ const CommandPrompt = () => {
     <div className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] w-full max-w-lg flex flex-col">
       <div className="flex flex-col w-full pt-6">
         {outputs.map((output, index) => (
-          <Output key={index} output={output} history={history[index]} />
+          <Output
+            key={index}
+            output={output}
+            history={history[index]}
+            doneLoading={() => setLoading(false)}
+          />
         ))}
       </div>
       <div className="w-0 h-0 opacity-0 block md:inline-block text-neon-purple text-neon-red text-neon-yellow text-neon-green text-neon-white text-neon-black" />
@@ -149,7 +163,7 @@ const CommandPrompt = () => {
           value={cmd}
           onChange={handleChange}
           onKeyDown={handleKeyPress}
-          autoFocus
+          autoFocus={true}
         />
       </form>
     </div>
