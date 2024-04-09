@@ -118,6 +118,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar {
   width: var(--scroll-size, 5px);
   height: var(--scroll-size, 5px);
