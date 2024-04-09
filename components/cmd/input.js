@@ -131,7 +131,7 @@ const CommandPrompt = () => {
 
   return (
     <div className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] w-full max-w-xl">
-      <div className="flex flex-col w-full pt-6">
+      <div className="flex flex-col w-full pt-6" ref={outputContainerRef}>
         {outputs.map((output, index) => (
           <Output key={index} output={output} history={history[index]} />
         ))}
