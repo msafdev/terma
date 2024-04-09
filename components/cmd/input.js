@@ -49,7 +49,7 @@ const Output = ({ output, history }) => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex items-start">
+      <div className="flex items-start py-2">
         <Header />
         <span className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)]">
           {history}
@@ -58,7 +58,7 @@ const Output = ({ output, history }) => {
       {displayedLines.map((line, index) => (
         <pre
           key={index}
-          className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] md:pl-4"
+          className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] md:pl-4 py-4"
           dangerouslySetInnerHTML={{ __html: line.text }}
         />
       ))}
@@ -133,7 +133,7 @@ const CommandPrompt = () => {
   };
 
   return (
-    <div className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] w-full max-w-xl">
+    <div className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] w-full max-w-lg flex flex-col">
       <div className="flex flex-col w-full pt-6">
         {outputs.map((output, index) => (
           <Output key={index} output={output} history={history[index]} />

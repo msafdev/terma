@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <>
-      <pre className="w-full max-w-xl text-left [font-size:_clamp(8px,3vw,16px)]">
+      <pre className="w-full max-w-lg text-left [font-size:_clamp(8px,3vw,16px)]">
         {`
 ****     *****  /********       **      ********
 /**/**  /**/**  /**//////      ****    /**/////
@@ -17,7 +17,10 @@ const Banner = () => {
             <span key={index}>
               {line.split("").map((char, index) =>
                 char === "/" ? (
-                  <span key={index} className="text-neon-red dark:text-neon-yellow">
+                  <span
+                    key={index}
+                    className="text-neon-red dark:text-neon-yellow"
+                  >
                     /
                   </span>
                 ) : char === "*" ? (

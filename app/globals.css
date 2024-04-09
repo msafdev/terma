@@ -89,6 +89,31 @@
     color: yellow;
   }
 
+  .text-neon-white {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2),
+      0 0 2px rgba(255, 255, 255, 0.2), 0 0 1px rgba(255, 255, 255, 0.2),
+      0 0 5px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.2),
+      0 0 2px rgba(255, 255, 255, 0.2), 0 0 2px rgba(255, 255, 255, 0.2),
+      0 0 1px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+
+  .text-neon-orange {
+    text-shadow: 0 0 1px rgba(255, 165, 0, 0.2), 0 0 2px rgba(255, 165, 0, 0.2),
+      0 0 1px rgba(255, 165, 0, 0.2), 0 0 5px rgba(255, 165, 0, 0.2),
+      0 0 2px rgba(255, 165, 0, 0.2), 0 0 2px rgba(255, 165, 0, 0.2),
+      0 0 2px rgba(255, 165, 0, 0.2), 0 0 1px rgba(255, 165, 0, 0.2);
+    color: orange;
+  }
+
+  .text-neon-purple {
+    text-shadow: 0 0 1px rgba(128, 0, 128, 0.2), 0 0 2px rgba(128, 0, 128, 0.2),
+      0 0 1px rgba(128, 0, 128, 0.2), 0 0 5px rgba(128, 0, 128, 0.2),
+      0 0 2px rgba(128, 0, 128, 0.2), 0 0 2px rgba(128, 0, 128, 0.2),
+      0 0 2px rgba(128, 0, 128, 0.2), 0 0 1px rgba(128, 0, 128, 0.2);
+    color: purple;
+  }
+
   .text-neon-red {
     text-shadow: 0 0 1px rgba(255, 0, 0, 0.2), 0 0 2px rgba(255, 0, 0, 0.2),
       0 0 1px rgba(255, 0, 0, 0.2), 0 0 5px rgba(255, 0, 0, 0.2),
