@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // CMDs
 import Header from "./header";
@@ -59,6 +59,14 @@ const CommandPrompt = () => {
   const [cmd, setCmd] = useState("");
   const [outputs, setOutputs] = useState([]);
   const [history, setHistory] = useState([]);
+  const outputContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (outputContainerRef.current) {
+      outputContainerRef.current.scrollTop =
+        outputContainerRef.current.scrollHeight;
+    }
+  }, [outputs]);
 
   const handleChange = (event) => {
     setCmd(event.target.value);
