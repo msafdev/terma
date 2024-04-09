@@ -30,11 +30,22 @@ const Output = ({ output, history }) => {
     };
 
     if (displayedLines.some((line) => line.text !== line.fullText)) {
-      interval = setInterval(updateLines, 0.001);
+      interval = setInterval(updateLines, 0.00001);
     }
 
     return () => clearInterval(interval);
   }, [displayedLines]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [displayedLines]);
+
+  const scrollToBottom = () => {
+    const textarea = document.getElementById("command");
+    if (textarea) {
+      textarea.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
 
   return (
     <div className="flex flex-col">
@@ -59,14 +70,6 @@ const CommandPrompt = () => {
   const [cmd, setCmd] = useState("");
   const [outputs, setOutputs] = useState([]);
   const [history, setHistory] = useState([]);
-  const outputContainerRef = useRef(null);
-
-  useEffect(() => {
-    if (outputContainerRef.current) {
-      outputContainerRef.current.scrollTop =
-        outputContainerRef.current.scrollHeight;
-    }
-  }, [outputs]);
 
   const handleChange = (event) => {
     setCmd(event.target.value);
@@ -131,11 +134,12 @@ const CommandPrompt = () => {
 
   return (
     <div className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] w-full max-w-xl">
-      <div className="flex flex-col w-full pt-6" ref={outputContainerRef}>
+      <div className="flex flex-col w-full pt-6">
         {outputs.map((output, index) => (
           <Output key={index} output={output} history={history[index]} />
         ))}
       </div>
+      <div className="w-0 h-0 opacity-0 block md:inline-block" />
       <form className="flex py-2 items-start" onSubmit={handleSubmit}>
         <Header />
         <textarea
