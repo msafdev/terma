@@ -29,7 +29,7 @@
     --scroll-size: 5px;
     --scroll-radius: 5px;
     --scroll-track: rgb(255 255 255 / 10%);
-    --scroll-thumb-color: #ff0;
+    --scroll-thumb-color: #f00;
   }
 
   .dark {
@@ -52,6 +52,9 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 142.4 71.8% 29.2%;
+
+    /* Scrollbar */
+    --scroll-thumb-color: #ff0;
   }
 }
 

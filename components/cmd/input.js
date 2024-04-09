@@ -30,7 +30,7 @@ const Output = ({ output, history }) => {
     };
 
     if (displayedLines.some((line) => line.text !== line.fullText)) {
-      interval = setInterval(updateLines, 0.00001);
+      interval = setInterval(updateLines, 0.1);
     }
 
     return () => clearInterval(interval);
@@ -109,7 +109,7 @@ const CommandPrompt = () => {
     event.preventDefault();
     if (cmd === "") {
       return;
-    } else if (cmd === "clear") {
+    } else if (cmd === "clear" || cmd === "cls") {
       handleClear();
       return;
     } else if (cmd === "exit") {
@@ -139,7 +139,7 @@ const CommandPrompt = () => {
           <Output key={index} output={output} history={history[index]} />
         ))}
       </div>
-      <div className="w-0 h-0 opacity-0 block md:inline-block" />
+      <div className="w-0 h-0 opacity-0 block md:inline-block text-neon-purple text-neon-red text-neon-yellow text-neon-green text-neon-white text-neon-black" />
       <form className="flex py-2 items-start" onSubmit={handleSubmit}>
         <Header />
         <textarea
