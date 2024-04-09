@@ -1,7 +1,10 @@
-import { Inter } from "next/font/google";
+import { Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const sourceCodePro = Source_Code_Pro({
+  subsets: ["latin"],
+  weights: [300, 400, 500, 600, 700],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`dark text-foreground dark:text-primary font-semibold anim ${sourceCodePro.className}`}>{children}</body>
     </html>
   );
 }
