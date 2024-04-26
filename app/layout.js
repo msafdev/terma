@@ -7,7 +7,7 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata = {
-  title: "Termsaf",
+  title: "MSAF | Terminal",
   description: "A terminal-styled portfolio for @msafdev.",
 };
 
