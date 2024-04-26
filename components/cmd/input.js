@@ -100,14 +100,6 @@ const CommandPrompt = () => {
     }, 500);
   };
 
-  const handleContact = () => {
-    const output = command("contact");
-    navigator.clipboard.writeText("salmanalfarisi261002@gmail.com");
-    setOutputs((prevOutputs) => [...prevOutputs, output]);
-    setHistory([...history, "contact"]);
-    setCmd("");
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -126,9 +118,6 @@ const CommandPrompt = () => {
       return setLoading(false);
     } else if (cmd === "theme") {
       handleThemeChange();
-      return setLoading(false);
-    } else if (cmd === "contact") {
-      handleContact();
       return setLoading(false);
     } else {
       const output = command(cmd);
