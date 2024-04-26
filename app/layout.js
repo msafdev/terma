@@ -1,4 +1,5 @@
 import { Source_Code_Pro } from "next/font/google";
+
 import "./globals.css";
 
 const sourceCodePro = Source_Code_Pro({
@@ -14,7 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`dark text-foreground dark:text-primary font-semibold anim ${sourceCodePro.className}`}>{children}</body>
+      <body
+        className={`dark text-foreground dark:text-primary font-semibold anim ${sourceCodePro.className}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
