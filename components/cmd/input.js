@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 // CMDs
 import Header from "./header";
@@ -113,6 +113,9 @@ const CommandPrompt = () => {
     setLoading(true);
     if (loading) return;
 
+    // This handles your cmd input based on the cmd
+    // You can make the function here or import it from lib/utils.js
+    // Personally i separate the function to lib/utils.js
     if (cmd === "") {
       return;
     } else if (cmd === "clear" || cmd === "cls") {
@@ -135,12 +138,6 @@ const CommandPrompt = () => {
     }
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      handleSubmit(event);
-    }
-  };
-
   return (
     <div className="dark:text-[#32cd32] [font-size:_clamp(10px,3vw,14px)] w-full max-w-lg flex flex-col">
       <div className="flex flex-col w-full pt-6">
@@ -156,13 +153,12 @@ const CommandPrompt = () => {
       <div className="w-0 h-0 opacity-0 block md:inline-block text-neon-purple text-neon-red text-neon-yellow text-neon-green text-neon-white text-neon-black" />
       <form className="flex py-2 items-start" onSubmit={handleSubmit}>
         <Header />
-        <textarea
+        <input
           className="bg-transparent border-0 outline-none cursor-text w-full dark:text-[#32cd32] resize-none"
           type="text"
           id="command"
           value={cmd}
           onChange={handleChange}
-          onKeyDown={handleKeyPress}
           autoFocus={true}
         />
       </form>

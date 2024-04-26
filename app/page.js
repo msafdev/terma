@@ -16,12 +16,7 @@ export default function Page() {
       {/* MSAF Banner */}
       <Banner />
 
-      {/* Warning */}
-      <code className="mb-6 mt-2 p-1 md:hidden [font-size:_clamp(10px,3vw,14px)] bg-red-600 text-yellow-200 max-w-lg">
-        For the best experience, please view this site on a desktop browser.
-      </code>
-
-      {/* Welcome */}
+      {/* Welcome - Change this paragraph to your liking*/}
       <code className="dark:text-[#32cd32] text-foreground w-full max-w-lg [font-size:_clamp(10px,3vw,14px)]">
         Welcome to{" "}
         <span className="text-neon-red dark:text-neon-yellow">Terma</span>
