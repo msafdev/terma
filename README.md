@@ -78,14 +78,13 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://terminal.msaf.tech)
 
-Hey there! Want a simple looking link management like Linktree/Milkshake but tired of it looking so bland? Look no further! **Terma** is here to simplify your link management experience. It's packed with features to make your life easier.
+Bippity boppity, **Terma** is a terminal-styled portfolio with a cool command-line interface. With **Terma**, you can create a sleek, professional-looking portfolio that's easy to customize, deploy, and host using your own domain.
 
-Here's why **Terma** rocks:
+Here's why **Terma** is for you:
 
-* Make your page look just the way you want with customizable **themes**, including a sleek dark mode, light mode, and premade theme (upcoming).
-* No coding headaches here. **Terma** gets you up and running in minutes, so you can focus on what matters. 
+* A cool dark and light theme with transition effects.
+* By default, you only need to modify 5 pages to get your portfolio up and running (each functionality will be listed below).
 * Free **hosting** using *Vercel* and add a personal touch with your own custom domain.
-* Say goodbye to repetitive tasks. **Terma** offers reusable components (buttons, cards, etc.) you can easily add whenever you want.
 
 We're constantly improving on **Terma** to meet your needs. Got any issues, ideas, or a feedback? We're all ears!
 
@@ -127,8 +126,6 @@ _Below is the step-by-step guide on how to install and setup this project effici
    ```sh
    npm install
    ```
-3. Change the base color theme using [Shadcn themes](https://ui.shadcn.com/themes), then paste it to `globals.css`
-4. Change to content of the page on `content/content.ts`
 
 #### Development
 
@@ -137,21 +134,24 @@ _Below is the step-by-step guide on how to install and setup this project effici
    npm run dev
    ```
 2. Open your browser and go to `http://localhost:PORT`
-3. Make changes to the content of the page on `content/content.ts`
-4. Make changes to the theme by adding "dark" on the html of the page
-5. Customize the code to your liking, and you're good to go!
-   
-#### Using the generator
 
-1. Go to your `http://localhost:PORT/generate`
-2. Add each link you want to add to your page on their respective forms
-3. Click on the "Generate" button
-4. Copy the content of generated object and paste it on `content/content.ts`
+
+#### File Structure
+
+##### components/cmd
+* **banner.js** - Contains the banner text that appears on the terminal. Use [Manytools](https://manytools.org/hacker-tools/ascii-banner/) to generate your own.
+* **header.js** - Contains the header text that appears on the terminal. (e.g. `demo@terma:~$`)
+* **input.js** - Will be where you add custom function handlers. (e.g. *Copy to clipboard functionality*)
+
+##### lib
+
+* **cmd.js** - Will be where you store your responses for each command. (e.g. `about`, `projects`, `contact`, etc.)
+* **utils.js** - Switch-case function that handles the command input and returns the appropriate response.
    
 #### Deployment
 
-1. Change the `devMode.template` on `content/content.ts` to `false`
-2. Build the project or deploy it to Vercel (or any other hosting service actually)
+1. Change everything you need then try building the project.
+2. If the build returns success, deploy it to Vercel (or any other hosting service actually)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,10 +160,8 @@ _Below is the step-by-step guide on how to install and setup this project effici
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add `content.ts` file generator
 - [ ] Add theme switcher with session storage
 - [ ] Add Changelog
-- [ ] Add Additional Templates w/ Examples
 
 See the [open issues](https://github.com/msafdev/terma/issues) for a full list of proposed features (and known issues).
 
@@ -201,9 +199,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/sal_moon) - faris.kocak@gmail.com
+Your Name - [Linkedin](https://linkedin.com/in/muhammadsalmoon) - faris.kocak@gmail.com
 
-Project Link: [https://github.com/msafdev/terma](https://github.com/msafdevmsaf-linkrepo_name)
+Project Link: [https://github.com/msafdev/terma](https://github.com/msafdev/terma)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -216,9 +214,7 @@ These are the resources that helped me build this project:
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
-* [Font Awesome](https://fontawesome.com)
 * [Vercel](https://vercel.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
